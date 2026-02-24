@@ -17,7 +17,7 @@ public class SerieDAOPostgreImpl implements ISerieDAO {
     }
 
     @Override
-    public Serie create(Serie serie) {
+    public Serie create(Serie serie) throws Exception {
         String sql = "INSERT INTO serie (titulo, genero, numerotemporadas) VALUES (?, ?, ?)";
 
         try (Connection conn = getConnection();
@@ -29,12 +29,9 @@ public class SerieDAOPostgreImpl implements ISerieDAO {
 
             stmt.executeUpdate();
             return serie;
-
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new Exception(e.getMessage());
         }
-
-        return null;
     }
 
     @Override

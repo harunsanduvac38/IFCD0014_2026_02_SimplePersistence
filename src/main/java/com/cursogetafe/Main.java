@@ -9,9 +9,13 @@ import com.cursogetafe.persistence.factory.SerieDAOFactory;
 public class Main {
     static void main() {
         ISerieDAO sdf = SerieDAOFactory.getSerieDAOImpl();
-        Serie nuevaSerie = sdf.create(new Serie("Batman","Ciencia ficción", 2));
-        System.out.println(nuevaSerie);
-        //Serie serie = sdf.read("titulo");
-        //System.out.println(serie);
+        try {
+            Serie nuevaSerie = sdf.create(new Serie("Batman", "Ciencia ficción", 2));
+            System.out.println(nuevaSerie);
+            //Serie serie = sdf.read("titulo");
+            //System.out.println(serie);
+        } catch (Exception e) {
+            System.err.println("Ha ocurrido un error:" + e.getMessage());
+        }
     }
 }

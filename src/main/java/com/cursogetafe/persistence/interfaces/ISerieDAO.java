@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface ISerieDAO {
-    public Serie create(Serie serie) throws IOException;
+    public Serie create(Serie serie) throws Exception;
     public Serie read(String titulo);
     public Serie update(Serie serie);
     public void delete(String titulo);
